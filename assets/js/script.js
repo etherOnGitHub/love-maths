@@ -1,7 +1,7 @@
 //DOM load checker
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.querySelectorAll("button");
-
+    // loop to add event listeners to all buttons
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "submit") {
@@ -13,10 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
         })    
     }
 })
-    // Initialize the game when the DOM is fully loaded
 
+/**
+ * Main game loop function
+ */
 function runGame() {
-    // Logic to start the game
+    // Randomly select numbers for the operands
+    let operand1 = Math.round(Math.random() * 25) + 1;
+    let operand2 = Math.round(Math.random() * 25) + 1;
 }
 
 function checkAnswer() {
