@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
     runGame("addition");
+    
 })
 
 /**
@@ -26,7 +27,10 @@ function runGame(gameType) {
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
-    } else {
+    } else if (gameType === "multiply") {
+        displayMultiplyQuestion(num1, num2);
+    
+    }  else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
@@ -53,6 +57,8 @@ function calculateCorrectAnswer() {
 
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
+    } else if (operator === "x") {
+        return [operand1 * operand2, "multiply"];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -79,7 +85,9 @@ function displaySubtractQuestion(operand1, operand2) {
 }
 
 function displayMultiplyQuestion(operand1, operand2) {
-    // Logic to display a multiplication question
+    document.querySelector("#operand1").innerText = operand1;
+    document.querySelector("#operand2").innerText = operand2;
+    document.querySelector("#operator").innerText = "x";
 }
 function displayDivisionQuestion(operand1, operand2) {
     // Logic to display a division question
