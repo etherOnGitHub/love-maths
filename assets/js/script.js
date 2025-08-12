@@ -1,17 +1,17 @@
 //DOM load checker
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.querySelectorAll("button");
     // loop to add event listeners to all buttons
     for (let button of buttons) {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "submit") {
                 checkAnswer();
-        } else {
+            } else {
                 let gameType = this.getAttribute("data-type");
                 alert(`You clicked ${gameType}`);
                 runGame(gameType);
             }
-        })    
+        })
     }
     runGame("addition");
 })
@@ -38,8 +38,10 @@ function checkAnswer() {
     let isCorrect = userAnswer === calculatedAnswer[0];
     if (isCorrect) {
         alert("Correct!");
+        incrementScore();
     } else {
         alert(`Incorrect! The correct answer was ${calculatedAnswer[0]}`);
+        incrementWrongAnswer();
     }
     runGame(calculatedAnswer[1]);
 }
@@ -57,11 +59,13 @@ function calculateCorrectAnswer() {
     }
 }
 function incrementScore() {
-    // Logic to increment the score
+    let oldScore = parseInt(document.querySelector("#score").innerText);
+    document.querySelector("#score").innerText = ++oldScore;
 }
 
 function incrementWrongAnswer() {
-    // Logic to increment the wrong answer count
+    let oldScore = parseInt(document.querySelector("#incorrect").innerText);
+    document.querySelector("#incorrect").innerText = ++oldScore;
 }
 
 function displayAdditionQuestion(operand1, operand2) {
