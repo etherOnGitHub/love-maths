@@ -37,9 +37,16 @@ function checkAnswer() {
 }
 
 function calculateCorrectAnswer() {
-    // Logic to calculate the correct answer based on the current question
-}
+    let operand1 = parseInt(document.querySelector("operand1").innerText);
+    let operand2 = parseInt(document.querySelector("operand2").innerText);
+}   let operator = document.querySelector("#operator").innerText;
 
+    if (operator === "+") {
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}. Aborting!`;
+    }
 function incrementScore() {
     // Logic to increment the score
 }
@@ -49,9 +56,9 @@ function incrementWrongAnswer() {
 }
 
 function displayAdditionQuestion(operand1, operand2) {
-    document.getElementById("operand1").textContent = operand1;
-    document.getElementById("operand2").textContent = operand2;
-    document.getElementById("operator").textContent = "+";
+    document.querySelector("#operand1").innerText = operand1;
+    document.querySelector("#operand2").innerText = operand2;
+    document.querySelector("#operator").innerText = "+";
 }
 
 function displaySubtractQuestion(operand1, operand2) {
